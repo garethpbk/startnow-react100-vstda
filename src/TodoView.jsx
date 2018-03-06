@@ -1,5 +1,5 @@
 import React from "react";
-import TodoItems from "./TodoItems";
+import TodoItem from "./TodoItem";
 import EditTodo from "./EditTodo";
 
 export default props => (
@@ -9,9 +9,11 @@ export default props => (
     </div>
     <div className="card-body">
       <ul className="list-group bg-light no-padding">
-        <TodoItems />
+        {props.todoItems.map(todoItems => (
+          <TodoItem key={todoItems.id} text={todoItems.text} priority={todoItems.priority} />
+        ))}
       </ul>
-      <EditTodo />
+      {/* <EditTodo /> */}
     </div>
   </div>
 );
